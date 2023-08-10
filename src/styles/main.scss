@@ -1,3 +1,9 @@
 @import "base/reset.css";
+@import "base/typography";
+
+@import "abstract/variables";
+@import "abstract/mixins";
 
 @import "components/gate";
+@import "components/canvas";
+@import "components/navbar";

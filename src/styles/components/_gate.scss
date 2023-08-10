@@ -1,5 +1,21 @@
 .gate{
-    display: grid;
-    grid-template-columns: repeat(30,10px);
-    grid-template-rows: repeat(30,10px);
+    top: -10px;
+    left: 10px;
+    position: absolute;
+    display: none;
+    width: calc($cell-amount*$cell-size);
+    height: calc($cell-amount*$cell-size);
+    overflow: hidden;
+    grid-template-columns: repeat($cell-amount,$cell-size);
+    grid-template-rows: repeat($cell-amount,$cell-size);
+    border-radius: 50%;
+    border: 1px solid #000;
+    &.active{
+        display: grid;
+    }
+    &__item{
+        &.active{
+            border: 1px solid red;
+        }
+    }
 }
