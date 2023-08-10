@@ -1,0 +1,5 @@
+.gate{
+    display: grid;
+    grid-template-columns: repeat(30,10px);
+    grid-template-rows: repeat(30,10px);
+}
