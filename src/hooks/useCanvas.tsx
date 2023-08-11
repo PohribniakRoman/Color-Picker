@@ -1,11 +1,21 @@
+//@ts-ignore
+import ColorThief from 'colorthief';
+
+export const canvasSize = {
+    x:640,
+    y:360
+}
+
+
+
 export const useCanvas = () =>{
     const RGBtoHEX = (...rest:number[]) => {
         return `rgb(${rest[0]+","+rest[1]+","+rest[2]})`;
       }
 
     const getListOfColors = (ctx:CanvasRenderingContext2D | null,radius:number,x:number,y:number):string[] => {
-        x=x-radius/2;
-        y=y-radius/2;
+        x=x-5;
+        y=y-5;
         const list = [] as string[];
         if(ctx){
             for (let i = 0; i < radius; i++) {
@@ -15,10 +25,18 @@ export const useCanvas = () =>{
                 }
             }
         }
-
+        
         return list;
     }
 
+    const getColorPlate = (img:any) =>{
+        const colorThief = new ColorThief();
+        return (colorThief.getPalette(img).map((color:number[])=>RGBtoHEX(...color)))
+    } 
+    const getMainColor = (img:any) =>{
+        const colorThief = new ColorThief();
+        return RGBtoHEX(...colorThief.getColor(img))
+    } 
     
-    return {RGBtoHEX,getListOfColors}
+    return {RGBtoHEX,getListOfColors,getColorPlate,getMainColor}
 } 
