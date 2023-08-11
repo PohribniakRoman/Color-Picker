@@ -57,11 +57,10 @@ useEffect(() => {
     }
   }, [link]);
 
-  console.log(colors);
-  
 
   return (
-    <section className="home">
+    <section className="banner">
+    <section className="banner__container" style={{background:`radial-gradient(circle, ${colors.primary} 0%, rgba(255,255,255,0) 100%)`}}/>
     <section className="canvas__wrapper">
       <canvas className="canvas" ref={canvas} width={canvasSize.x} height={canvasSize.y} />
       <CanvasGate colorList={colorList} gatePosition={gatePosition}/>

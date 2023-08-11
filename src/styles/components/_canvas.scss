@@ -9,7 +9,7 @@
     &__plate{
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(10,1fr);
+        
         grid-template-rows: 50px;
         transition: .3s;
         &--wrapper{
@@ -34,10 +34,4 @@
             }
         }
     }
-}
-.home{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }

@@ -17,7 +17,7 @@ export const CanvasColorPlate: React.FC<CanvasColorPlate> = ({ plate }) => {
         {plate
           ? plate.map((color) => {
               return (
-                <li
+                <li key={color}
                   className="canvas__plate--item"
                   style={{ backgroundColor: color }}
                 />
