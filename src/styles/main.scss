@@ -8,3 +8,9 @@
 @import "components/canvas";
 @import "components/navbar";
 @import "components/banner";
+
+.page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

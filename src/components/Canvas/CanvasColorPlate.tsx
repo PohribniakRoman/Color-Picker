@@ -8,7 +8,8 @@ export interface CanvasColorPlate {
 
 export const CanvasColorPlate: React.FC<CanvasColorPlate> = ({ plate }) => {
     const [plateSize,setPlateSize] = useState<number>(10);
-  return (
+
+    return (
     <section className="canvas__plate--wrapper">
       <div className="canvas__plate--btn left" onClick={()=>setPlateSize(plateSize-1<3?3:plateSize-1)}>
         <AiOutlineMinus />

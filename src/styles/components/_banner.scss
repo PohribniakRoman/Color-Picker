@@ -3,9 +3,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #fafafa;
+    transition: .3s;
+    height: 100%;
     &__container{
-        height: 400px;
-        width: 100%;
+        width: 1100px;
+        display: flex;
     }
 }

@@ -1,29 +1,37 @@
 .canvas{
     cursor: crosshair;
-    
+    margin: 10px;
     &__wrapper{
         @include card;
-        display: inline-block;
-        margin: 40px;
+        position: relative;
+        background-color: #fafafa;
+        border-radius: 4px;
     }
     &__plate{
         width: 100%;
         display: grid;
-        
         grid-template-rows: 50px;
         transition: .3s;
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
         &--wrapper{
             display: flex;
             align-items: center;
         }
         &--btn{
-            background-color: lightgray;
+            border: 1px solid lightgray;
+            background-color: #fafafa;
             height: 50px;
             width: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            &:active{
+                & svg{
+                    scale: 0.9;
+                }
+            }
             &.right{
                 border-top-right-radius: 10px;
                 border-bottom-right-radius: 10px;
@@ -33,5 +41,12 @@
                 border-bottom-left-radius: 10px;
             }
         }
+    }
+    &__reflection{
+        @include card;
+        width: 100%;
+        margin-left: 30px;
+        background-color: #fafafa;
+        border-radius: 4px;
     }
 }
