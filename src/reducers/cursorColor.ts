@@ -1,6 +1,6 @@
 const defaultState = {
-    hovered:"",
-    clicked:""
+    hovered:"Loading...",
+    clicked:"Loading..."
 } as CursorColor
 
 export interface CursorColor{
