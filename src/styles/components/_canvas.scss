@@ -1,52 +1,122 @@
-.canvas{
-    cursor: crosshair;
-    margin: 10px;
-    &__wrapper{
-        @include card;
-        position: relative;
-        background-color: #fafafa;
-        border-radius: 4px;
+.canvas {
+  cursor: crosshair;
+  margin: 10px;
+  &__wrapper {
+    @include card;
+    position: relative;
+    background-color: #fafafa;
+    border-radius: 4px;
+  }
+  &__plate {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 50px;
+    transition: 0.3s;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    &--wrapper {
+      display: flex;
+      align-items: center;
     }
-    &__plate{
-        width: 100%;
-        display: grid;
-        grid-template-rows: 50px;
+    &--btn {
+      border: 1px solid lightgray;
+      background-color: #fafafa;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &:active {
+        & svg {
+          scale: 0.9;
+        }
+      }
+      &.right {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      &.left {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+  }
+  &__reflection {
+    @include card;
+    width: 100%;
+    margin-left: 30px;
+    background-color: #fafafa;
+    border-radius: 4px;
+  }
+  &__selected{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    &--color{
+        width: 100px;
+        height: 50px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+        border-radius: 5px;
+    }
+}
+  &__hovered {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    &--hex {
+      width: 100%;
+      margin: 10px;
+      margin-left: 20px;
+      font-family: consolas;
+      text-align: left;
+      border-radius: 5px;
+      padding: 13px 10px;
+      border: 1px solid lightgray;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      position: relative;
+    }
+    &--color {
+      width: 80px;
+      transition: .1s;
+      height: 32px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+      border-radius: 5px;
+    }
+  }
+  &__copy{
+    cursor: pointer;
+    font-size: 18px;
+    &::before{
+        position: absolute;
+        content: "Copied!";
+        background-color: rgba(0, 0, 0, 0.82);
+        color: #fafafa;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 15px;
+        top: 0%;
+        right: 15%;
+        opacity: 0;
         transition: .3s;
-        border-top: 1px solid lightgray;
-        border-bottom: 1px solid lightgray;
-        &--wrapper{
-            display: flex;
-            align-items: center;
-        }
-        &--btn{
-            border: 1px solid lightgray;
-            background-color: #fafafa;
-            height: 50px;
-            width: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            &:active{
-                & svg{
-                    scale: 0.9;
-                }
-            }
-            &.right{
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-            &.left{
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-            }
+        transform: translate(50%,-50%);
+    }
+    &.active{
+        &::before{
+            z-index: 1000;
+            opacity: 1;
         }
     }
-    &__reflection{
-        @include card;
-        width: 100%;
-        margin-left: 30px;
-        background-color: #fafafa;
-        border-radius: 4px;
+    &:active{
+        & svg{
+            scale: 0.9;
+        }
     }
+  }
 }

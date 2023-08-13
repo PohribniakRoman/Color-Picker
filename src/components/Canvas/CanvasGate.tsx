@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { useCanvas } from "../../hooks/useCanvas";
 import {useState,useEffect,useRef} from "react";
 
@@ -16,6 +17,7 @@ export const CanvasGate:React.FC<CanvasGate> = ({canvas}) => {
     const [colorList,setColorList] = useState<string[]>([]);
     const [gatePosition,setGatePosition] = useState<GatePosition>({x:0,y:0,visible:false})
     const once = useRef<boolean>(true);    
+    const dispatch = useDispatch();
 
     const handleMouseMove = (event: MouseEvent) => {
           const ctx = canvas.getContext("2d");
@@ -25,11 +27,19 @@ export const CanvasGate:React.FC<CanvasGate> = ({canvas}) => {
           const y = event.clientY - rect.top;
           setColorList(canvasHandler.getListOfColors(ctx,11,x,y));
           setGatePosition({visible:true,x,y})
-    };
-
-    useEffect(() => {
+        };
+        
+        useEffect(()=>{
+            dispatch({type:"SET_HOVERED",payload:colorList[61]})
+        },[colorList])
+        
+        
+        useEffect(() => {
         if(once){
-            once.current = false;
+            once.current = false;   
+            canvas.addEventListener("click",()=>{
+                dispatch({type:"SET_CLICKED",payload:colorList[61]})
+            })
             canvas.addEventListener("mouseover", () => {
                 canvas.addEventListener("mousemove", handleMouseMove);
             });
