@@ -3,7 +3,7 @@ import {useState} from "react";
 
 
 export const Nvabar = () => {
-    const [menuState,setMenuState] = useState<boolean>(true)
+    const [menuState,setMenuState] = useState<boolean>(false)
 
     return <section className="navbar">
         <nav className="navbar__container">

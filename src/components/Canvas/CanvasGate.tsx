@@ -35,8 +35,8 @@ export const CanvasGate: React.FC<CanvasGate> = ({ canvas }) => {
   };
 
   useEffect(() => {
-    dispatch({ type: "SET_HOVERED", payload: colorList[61] });
-    cursorColorRef.current = colorList[61];
+    dispatch({ type: "SET_HOVERED", payload: colorList[60] });
+    cursorColorRef.current = colorList[60];
   }, [colorList]);
 
   useEffect(() => {

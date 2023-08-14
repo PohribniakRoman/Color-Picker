@@ -4,6 +4,7 @@ import { CanvasGate } from "./CanvasGate";
 import { CanvasColorPlate } from "./CanvasColorPlate";
 import { CanvasReflection } from "./CanvasReflection";
 import { useDispatch } from "react-redux";
+import { LoadCanvas } from "./LoadCanvas";
 
 interface Colors {
   primary: string | null;
@@ -58,19 +59,11 @@ export const CanvasContainer: React.FC = () => {
           {canvas.current ? <CanvasGate canvas={canvas.current} /> : null}
           <CanvasColorPlate plate={colors.plate} />
         </div>
-        <CanvasReflection/>
+        <div className="banner__container-column">
+          <CanvasReflection/>
+          <LoadCanvas updateLink={updateLink}/>
+        </div>
       </section>
-
-      <form
-        onSubmit={(event: React.FormEvent) => {
-          event.preventDefault();
-          const el = event.target as any;
-          updateLink(el.url.value);
-        }}
-      >
-        <input type="url" name="url" />
-        <input type="submit" value={"Update Link"} />
-      </form>
     </section>
   );
 };

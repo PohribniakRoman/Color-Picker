@@ -1,5 +1,6 @@
 //@ts-ignore
 import ColorThief from 'colorthief';
+import rgbHex from 'rgb-hex';
 
 export const canvasSize = {
     x:640,
@@ -9,7 +10,7 @@ export const canvasSize = {
 
 
 export const useCanvas = () =>{
-    const RGBtoHEX = (...rest:number[]) => {
+    const toRGB = (...rest:number[]) => {
         return `rgb(${rest[0]+","+rest[1]+","+rest[2]})`;
       }
 
@@ -21,7 +22,7 @@ export const useCanvas = () =>{
             for (let i = 0; i < radius; i++) {
                 for (let j = 0; j < radius; j++) {
                     const data = ctx.getImageData(x+j,y+i,1,1).data
-                    list.push(RGBtoHEX(data[0],data[1],data[2]))            
+                    list.push(toRGB(data[0],data[1],data[2]))            
                 }
             }
         }
@@ -31,12 +32,20 @@ export const useCanvas = () =>{
 
     const getColorPlate = (img:any) =>{
         const colorThief = new ColorThief();
-        return (colorThief.getPalette(img).map((color:number[])=>RGBtoHEX(...color)))
+        return (colorThief.getPalette(img).map((color:number[])=>toRGB(...color)))
     } 
     const getMainColor = (img:any) =>{
         const colorThief = new ColorThief();
-        return RGBtoHEX(...colorThief.getColor(img))
+        return toRGB(...colorThief.getColor(img))
     } 
+
+    const RGBtoHEX = (data:string) => {
+        try{
+            return rgbHex(data);
+        }catch{
+            return data;
+        }
+    }
     
-    return {RGBtoHEX,getListOfColors,getColorPlate,getMainColor}
+    return {toRGB,getListOfColors,getColorPlate,getMainColor,RGBtoHEX}
 } 

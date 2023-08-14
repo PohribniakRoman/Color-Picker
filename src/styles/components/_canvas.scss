@@ -47,9 +47,19 @@
     @include card;
     padding: 0;
     width: 100%;
-    margin-left: 30px;
     background-color: #fafafa;
     border-radius: 4px;
+    &--footer{
+      padding: 16px;
+      border-top: 1px solid #e5e7eb;
+      &-btn{
+        font-size: 13px;
+        cursor: pointer;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
     &--navbar{
       border-bottom: 1px solid #e5e7eb;
       position: relative;
@@ -96,7 +106,7 @@
     }
 }
   &__hovered {
-    padding: 0 16px;
+    padding: 0 16px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,6 +124,7 @@
       justify-content: space-between;
       width: 100%;
       position: relative;
+      font-size: 14px;
     }
     &--color {
       width: 100px;
