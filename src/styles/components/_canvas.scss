@@ -45,14 +45,47 @@
   &__reflection {
     user-select: none;
     @include card;
+    padding: 0;
     width: 100%;
     margin-left: 30px;
     background-color: #fafafa;
     border-radius: 4px;
+    &--navbar{
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+      padding: 16px;
+      display: flex;
+      &-logo{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: 13px;
+        translate: -50% -50%;
+      }
+      &-container{
+        display: flex;
+      }
+      &-item{
+        margin-right: 10px;
+        cursor: pointer;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      &-item:nth-child(1){
+        background-color: rgb(255, 95, 86);
+      }
+      &-item:nth-child(2){
+        background-color: rgb(255, 189, 46);
+      }
+      &-item:nth-child(3){
+        background-color: rgb(39, 201, 63);
+      }
+    }
   }
   &__selected{
+    padding: 10px 16px 0;
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
     &--color{
@@ -63,8 +96,8 @@
     }
 }
   &__hovered {
+    padding: 0 16px;
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
     &--hex {
@@ -83,7 +116,7 @@
       position: relative;
     }
     &--color {
-      width: 80px;
+      width: 100px;
       transition: .1s;
       height: 32px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);

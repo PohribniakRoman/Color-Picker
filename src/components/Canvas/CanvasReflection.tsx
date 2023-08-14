@@ -15,6 +15,15 @@ export const CanvasReflection = () => {
     },[color])
 
     return <div className="canvas__reflection">
+      <div className="canvas__reflection--navbar">
+        <div className="canvas__reflection--navbar-container">
+            <div className="canvas__reflection--navbar-item"/>
+            <div className="canvas__reflection--navbar-item"/>
+            <div className="canvas__reflection--navbar-item"/>
+        </div>
+        <div className="canvas__reflection--navbar-logo">Colors</div>
+      </div>
+
     <div className="canvas__selected">
       <div className="canvas__selected--color" style={{background:cursorColor.clicked}} />
       <div className="canvas__hovered--hex">
