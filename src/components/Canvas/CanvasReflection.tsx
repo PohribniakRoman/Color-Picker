@@ -32,7 +32,7 @@ export const CanvasReflection = () => {
           style={{ background: cursorColor.clicked }}
         />
         <div className="canvas__hovered--hex">
-          <span>HEX: #{canvasHandler.RGBtoHEX(cursorColor.clicked)}</span>
+          <span>HEX: {canvasHandler.RGBtoHEX(cursorColor.clicked)}</span>
           <div
             className="canvas__copy"
             ref={copyClicked}

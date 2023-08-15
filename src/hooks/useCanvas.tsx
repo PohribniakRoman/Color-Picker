@@ -11,7 +11,7 @@ export const canvasSize = {
 
 export const useCanvas = () =>{
     const toRGB = (...rest:number[]) => {
-        return `rgb(${rest[0]+","+rest[1]+","+rest[2]})`;
+        return "rgb("+rest[0]+","+rest[1]+","+rest[2]+")";
       }
 
     const getListOfColors = (ctx:CanvasRenderingContext2D | null,radius:number,x:number,y:number):string[] => {
@@ -41,7 +41,7 @@ export const useCanvas = () =>{
 
     const RGBtoHEX = (data:string) => {
         try{
-            return rgbHex(data);
+            return `#${rgbHex(data)}`;
         }catch{
             return data;
         }

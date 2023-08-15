@@ -1,6 +1,7 @@
 .gate{
     top: 15px;
     left: 30px;
+    z-index: 1000;
     position: absolute;
     display: none;
     width: calc($cell-amount*$cell-size);
