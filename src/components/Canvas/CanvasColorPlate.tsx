@@ -1,5 +1,5 @@
 import  React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 export interface CanvasColorPlate {
@@ -7,11 +7,13 @@ export interface CanvasColorPlate {
 }
 
 export const CanvasColorPlate: React.FC<CanvasColorPlate> = ({ plate }) => {
-    const [plateSize,setPlateSize] = useState<number>(10);
-
+    const [plateSize,setPlateSize] = useState<number>(1);
+    useEffect(()=>{
+      setPlateSize(plate?plate.length:1)
+    },[plate])
     return (
     <section className="canvas__plate--wrapper">
-      <div className="canvas__plate--btn left" onClick={()=>setPlateSize(plateSize-1<3?3:plateSize-1)}>
+      <div className="canvas__plate--btn left" onClick={()=>setPlateSize(plateSize-1<1?1:plateSize-1)}>
         <AiOutlineMinus />
       </div>
       <ul className="canvas__plate" style={{gridTemplateColumns:`repeat(${plateSize},1fr)`}}>

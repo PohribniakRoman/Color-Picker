@@ -27,16 +27,32 @@ export const CanvasContainer: React.FC = () => {
   useEffect(() => {
     if (canvas.current) {
       const ctx = canvas.current.getContext("2d");
-      const image = new Image();
-      image.crossOrigin = "Anonymous";
-      image.onload = () => {
-        ctx?.drawImage(image, 0, 0, canvasSize.x, canvasSize.y);
+      if(link.length === 7 && ctx){
+        ctx.fillStyle = link;
+        ctx.fillRect(0,0,canvasSize.x,canvasSize.y);
         updateColors({
-          plate: canvasHandler.getColorPlate(image),
-          primary:canvasHandler.getMainColor(image),
+          plate: [link],
+          primary:link,
         });
-      };
-      image.src = link;
+      }else if (ctx){
+        const image = new Image();
+        image.crossOrigin = "Anonymous";
+        image.onload = () => {
+          ctx.clearRect(0,0,canvasSize.x,canvasSize.y)
+          if(image.width > image.height){
+            ctx.drawImage(image, 0, 0, canvasSize.x, canvasSize.y);
+          }else{
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0,0,canvasSize.x,canvasSize.y);
+            ctx.drawImage(image, canvasSize.x/2-canvasSize.y/2, canvasSize.y/2-(canvasSize.x*(image.width/image.height))/2, canvasSize.y, canvasSize.x*(image.width/image.height));
+          }
+          updateColors({
+            plate: canvasHandler.getColorPlate(image),
+            primary:canvasHandler.getMainColor(image),
+          });
+        };
+        image.src = link;
+      }
     }
   }, [link]);
   

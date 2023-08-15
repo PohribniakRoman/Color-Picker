@@ -16,7 +16,9 @@ export const FromModal: React.FC<FromModal> = ({ overlay, updateLink }) => {
       className="form__overlay"
       onClick={(event) =>event.target === overlay.current && closeModal()}
     >
+
       <div className="form__modal">
+      <div className="form__close" onClick={() => overlay.current?.classList.remove("active")}/>
         <div className="form__modal--title">Select image</div>
         <FormTabList index={index} setIndex={setIndex}/>
         <FormVisualise overlay={overlay} updateLink={updateLink} index={index}/>

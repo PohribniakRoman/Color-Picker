@@ -8,7 +8,10 @@ export const FormLoadByLink:React.FC<FormWorker> = ({updateLink,overlay}) => {
         updateLink(el.url.value);
         overlay.current?.classList.remove("active");
       }}>
-        <input type="url" name="url" required/>
-        <input type="submit" value="Update Link" />
+        <span className="form__modal--window-url-container">
+          <input className="form__modal--window-url" autoComplete="off"  type="url" name="url" required/>
+        </span>
+        <input className="form__modal--window-url-submit" type="submit" value="Update Link" />
+
     </form>
 }
