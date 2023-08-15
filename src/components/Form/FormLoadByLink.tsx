@@ -11,7 +11,7 @@ export const FormLoadByLink:React.FC<FormWorker> = ({updateLink,overlay}) => {
         <span className="form__modal--window-url-container">
           <input className="form__modal--window-url" autoComplete="off"  type="url" name="url" required/>
         </span>
-        <input className="form__modal--window-url-submit" type="submit" value="Update Link" />
+        <input className="form__modal--window-select_color" style={{margin:"0",marginTop:"20px"}} type="submit" value="Update Link" />
 
     </form>
 }
