@@ -12,8 +12,8 @@ export const Nvabar = () => {
     return <section className={`navbar${nvabarState.theme?"":" dark"}`}>
         <nav className="navbar__container">
             <nav className="navbar__menu">
-                <nav className={`navbar__menu--item first ${!nvabarState.page?"active":""}`} onClick={()=>nvabarState.page && dispatch({type:"SET_PAGE",payload:!nvabarState.page})}>Pick color from image</nav>
-                <nav className={`navbar__menu--item last ${nvabarState.page?"active":""}`} onClick={()=>!nvabarState.page && dispatch({type:"SET_PAGE",payload:!nvabarState.page})}>Color picker</nav>
+                <nav className={`navbar__menu--item first ${nvabarState.page?"active":""}`} onClick={()=>!nvabarState.page && dispatch({type:"SET_PAGE",payload:!nvabarState.page})}>Pick color from image</nav>
+                <nav className={`navbar__menu--item last ${!nvabarState.page?"active":""}`} onClick={()=>nvabarState.page && dispatch({type:"SET_PAGE",payload:!nvabarState.page})}>Color picker</nav>
             </nav>
             <nav className="navbar__theme" onClick={()=>dispatch({type:"SET_THEME",payload:!nvabarState.theme} as NavBarAction)}>
                 {nvabarState.theme
