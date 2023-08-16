@@ -1,6 +1,6 @@
 const defaultState = {
-    page:false,
-    theme:false
+    page:true,
+    theme:true
 } as NavBar
 
 export interface NavBar{

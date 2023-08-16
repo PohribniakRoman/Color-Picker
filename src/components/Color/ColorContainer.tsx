@@ -6,7 +6,7 @@ export const ColorContainer:React.FC = () =>{
     const nvabarState = useSelector((state:State)=>state.navbar); 
 
     
-    return <section className={`color ${nvabarState.page?"":"away"}`}>
+    return <section className={`color${nvabarState.page?" away":""}`}>
 
     </section>
 }
