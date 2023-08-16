@@ -21,13 +21,11 @@
       align-items: center;
       justify-content: center;
       &.active{
-        &::before{
-          content: '';
+        & span{
           width: 12px;
           height: 12px;
           border-radius: 50%;
           background-color: inherit;
-          filter:invert(1) grayscale(100%);
           position: absolute;
         }
       }

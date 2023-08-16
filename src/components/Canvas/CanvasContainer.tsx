@@ -66,7 +66,7 @@ export const CanvasContainer: React.FC = () => {
 
 
   return (
-    <section className={`banner${nvabarState.page?"":" away"}`}  style={{ background: `${colors.primary}`}}>
+    <section className={`banner${nvabarState.page?"":" away"} ${nvabarState.theme?"":"dark"}`}  style={{ background: `${colors.primary}`}}>
       <section className="banner__container">
         <div className="canvas__wrapper">
           <canvas

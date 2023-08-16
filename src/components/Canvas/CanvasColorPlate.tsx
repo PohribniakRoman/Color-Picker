@@ -33,6 +33,7 @@ export const CanvasColorPlate: React.FC<CanvasColorPlate> = ({ plate }) => {
         {plate
           ? plate.map((color) => {
             color = canvasHandler.RGBtoHEX(color);
+            const closest = canvasHandler.getClosestColor(color,[{hex:"#ffffff",name:"black"},{hex:"#000000",name:"white"}]);
             return (
               <li key={color}
                 onClick={()=>{
@@ -40,7 +41,9 @@ export const CanvasColorPlate: React.FC<CanvasColorPlate> = ({ plate }) => {
                 }}
                   className={`canvas__plate--item ${currentColor === color?"active":""}`}
                   style={{ backgroundColor: color }}
-                />
+                >
+                  <span style={{background:closest}}></span>
+                </li>
               );
             })
           : "loading..."}
