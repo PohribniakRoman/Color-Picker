@@ -1,0 +1,10 @@
+.color{
+    width: 100vw;
+    height: 100%;
+    background-color: #000;
+    transition: .3s;
+    transform: translateX(0%);
+    &.away{
+        transform: translateX(100%);
+    }
+}

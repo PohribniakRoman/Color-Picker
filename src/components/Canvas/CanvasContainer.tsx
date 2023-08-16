@@ -3,8 +3,9 @@ import React, { useRef, useState, useEffect } from "react";
 import { CanvasGate } from "./CanvasGate";
 import { CanvasColorPlate } from "./CanvasColorPlate";
 import { CanvasReflection } from "./CanvasReflection";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LoadCanvas } from "./LoadCanvas";
+import { State } from "../../reducers/combinerdReducer";
 
 interface Colors {
   primary: string | null;
@@ -13,8 +14,10 @@ interface Colors {
 
 export const CanvasContainer: React.FC = () => {
   const canvas = useRef<null | HTMLCanvasElement>(null);
+  const nvabarState = useSelector((state:State)=>state.navbar); 
   const canvasHandler = useCanvas();
   const dispatch = useDispatch();
+
 
   const [colors, updateColors] = useState<Colors>({
     primary: null,
@@ -63,7 +66,7 @@ export const CanvasContainer: React.FC = () => {
 
 
   return (
-    <section className="banner" style={{ background: `${colors.primary}` }}>
+    <section className={`banner${nvabarState.page?" away":""}`}  style={{ background: `${colors.primary}`}}>
       <section className="banner__container">
         <div className="canvas__wrapper">
           <canvas

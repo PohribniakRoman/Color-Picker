@@ -1,10 +1,13 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { CursorColor, cursorColor } from "./cursorColor";
+import { NavBar, navBarReducer } from "./navbarReducer";
 
 export type State = {
-    cursorColor:CursorColor
+    cursorColor:CursorColor;
+    navbar:NavBar;
 }
 
 export const combinedReducer = combineReducers({
-    cursorColor:cursorColor
+    cursorColor:cursorColor,
+    navbar:navBarReducer
 })

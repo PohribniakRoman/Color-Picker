@@ -1,5 +1,20 @@
 .navbar{
     border-bottom: 1px solid #e5e7eb;
+    transition: .3s;
+    &.dark{
+        background-color: #000;
+        color: #fafafa;
+        border-bottom: 1px solid rgb(54, 54, 54);
+        & *::before{
+            background-color:rgb(190, 190, 190);
+        }
+        .navbar__theme{
+            color: #d1d1d1;
+        }
+        .navbar__theme:hover{
+            background-color: rgba($color: #202020, $alpha: 1.0);
+        }
+    }
     &__container{
         width: 1000px;
         display: flex;
