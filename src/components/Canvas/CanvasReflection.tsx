@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../reducers/combinerdReducer";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { CursorColor } from "../../reducers/cursorColor";
@@ -10,6 +10,7 @@ export const CanvasReflection = () => {
   const [cursorColor, setCursorColor] = useState<CursorColor>(color);
   const copyHovered = useRef<null | HTMLDivElement>(null);
   const copyClicked = useRef<null | HTMLDivElement>(null);
+  const dispatch = useDispatch();
   const canvasHandler = useCanvas();
 
   useEffect(() => {
@@ -20,9 +21,9 @@ export const CanvasReflection = () => {
     <div className="canvas__reflection">
       <div className="canvas__reflection--navbar">
         <div className="canvas__reflection--navbar-container">
-          <div className="canvas__reflection--navbar-item" />
-          <div className="canvas__reflection--navbar-item" />
-          <div className="canvas__reflection--navbar-item" />
+          <div className="canvas__reflection--navbar-item" onClick={() =>dispatch({ type: "SET_PAGE", payload: false })}/>
+          <div className="canvas__reflection--navbar-item" onClick={() =>dispatch({ type: "SET_PAGE", payload: false })}/>
+          <div className="canvas__reflection--navbar-item" onClick={() =>dispatch({ type: "SET_PAGE", payload: false })}/>
         </div>
         <div className="canvas__reflection--navbar-logo">Colors</div>
       </div>
@@ -71,7 +72,10 @@ export const CanvasReflection = () => {
         </div>
       </div>
       <div className="canvas__reflection--footer">
-        <div className="canvas__reflection--footer-btn">
+        <div
+          className="canvas__reflection--footer-btn"
+          onClick={() =>dispatch({ type: "SET_PAGE", payload: false })}
+        >
           Show more
         </div>
       </div>
