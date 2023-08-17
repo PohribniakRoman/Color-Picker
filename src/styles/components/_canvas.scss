@@ -1,9 +1,5 @@
 .canvas {
-  &.dark{
-    .canvas__wrapper{
-      background-color: #111;
-    }
-  }
+
   cursor: crosshair;
   margin: 10px;
   &__wrapper {

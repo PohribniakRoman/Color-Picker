@@ -1,15 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { State } from "../../reducers/combinerdReducer";
-import namedColors from 'color-name-list';
+import namedColors from '../../../colornames.json';
 import { useCanvas } from "../../hooks/useCanvas";
 
 export const ColorContainer:React.FC = () =>{
     const nvabarState = useSelector((state:State)=>state.navbar); 
     const canvasHandler = useCanvas();
     const HEX = canvasHandler.RGBtoHEX(useSelector((state:State)=>state.cursorColor.clicked));
-    //@ts-ignore
-    const result = HEX !== "Loading..." ? canvasHandler.getClosestColor(HEX,namedColors.colorNameList):"Loading...";
+
+    const result = HEX !== "Loading..." ? canvasHandler.getClosestColor(HEX,namedColors):"Loading...";
 
 
     return <section className={`color${nvabarState.page?" away":""} ${nvabarState.theme?"":"dark"}`}>
