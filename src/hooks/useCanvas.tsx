@@ -74,7 +74,7 @@ export const useCanvas = () => {
     }
     return Infinity;
   };
-
+  
   const getClosestColor = (target: any, list: any) => {
     let result = list[0].name;
     let dist = calcDistance(list[0].hex, target);
@@ -87,6 +87,35 @@ export const useCanvas = () => {
     });
     return result;
   };
+  
+  const generatePlateToColor = (color:string,target:string) => {
+    const [r1, g1, b1] = hexToRgb(color);
+    const [r2, g2, b2] = hexToRgb(target);
+    const [d1,d2,d3] = [Math.round(Math.abs(r2-r1)/10),Math.round(Math.abs(g2-g1)/10),Math.round(Math.abs(b2-b1)/10)  ];   
+    
+
+    const result = new Array(10).fill(1).map((el,index)=>{
+      const currentColor = [] as any;
+      if(r1 > r2){
+        currentColor[0] = r1-d1*index; 
+      }else{ 
+        currentColor[0] = r1+d1*index
+      }
+      if(g1 > g2){
+        currentColor[1] = g1-d2*index; 
+      }else{ 
+        currentColor[1] = g1+d2*index
+      }
+      if(b1 > b2){
+        currentColor[2] = b1-d3*index; 
+      }else{ 
+        currentColor[2] = b1+d3*index
+      }
+      return RGBtoHEX(toRGB(currentColor));
+    })
+    result[9] = target;
+    return result
+  }
 
   return {
     toRGB,
@@ -95,5 +124,6 @@ export const useCanvas = () => {
     getMainColor,
     RGBtoHEX,
     getClosestColor,
+    generatePlateToColor
   };
 };
