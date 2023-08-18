@@ -21,3 +21,22 @@
         height: 100%;
     }
 }
+
+
+
+@media (max-width:1000px) {
+    .page * {
+        display: none;
+    }
+    .page::after{
+        text-align: center;
+        line-height: 1.6;
+        content: 'Page is not accessible on small screens';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 14px;
+        transform: translate(-50%,-50%);
+        color: #000;
+    }
+}
