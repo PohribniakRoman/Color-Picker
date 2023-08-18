@@ -91,11 +91,11 @@ export const useCanvas = () => {
   const generatePlateToColor = (color:string,target:string) => {
     const [r1, g1, b1] = hexToRgb(color);
     const [r2, g2, b2] = hexToRgb(target);
-    const [d1,d2,d3] = [Math.round(Math.abs(r2-r1)/10),Math.round(Math.abs(g2-g1)/10),Math.round(Math.abs(b2-b1)/10)  ];   
+    const [d1,d2,d3] = [Math.abs(r2-r1)/11,Math.abs(g2-g1)/11,Math.abs(b2-b1)/11];   
     
 
-    const result = new Array(10).fill(1).map((el,index)=>{
-      const currentColor = [] as any;
+    const result = new Array(11).fill(1).map((el,index)=>{
+      const currentColor = [el] as any;
       if(r1 > r2){
         currentColor[0] = r1-d1*index; 
       }else{ 
@@ -111,9 +111,12 @@ export const useCanvas = () => {
       }else{ 
         currentColor[2] = b1+d3*index
       }
+      currentColor[0] = Math.round(currentColor[0]);
+      currentColor[1] = Math.round(currentColor[1]);
+      currentColor[2] = Math.round(currentColor[2]);
       return RGBtoHEX(toRGB(currentColor));
     })
-    result[9] = target;
+    result[10] = target;
     return result
   }
 

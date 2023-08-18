@@ -31,7 +31,7 @@ export const ColorContainer:React.FC = () =>{
             <div className="color__variations--list">
                 {colorMapWhite !== "Loading..." && colorMapWhite.map((color,index)=>{
                      const closest = canvasHandler.getClosestColor(color,[{hex:"#ffffff",name:"black"},{hex:"#000000",name:"white"}])
-                     return <div key={color} data-precent={((index+1)*10)+"%"} className="color__variations--list-item" data-color={color} style={{color:closest,background:color}}>
+                     return <div key={color} data-precent={((index)*10)+"%"} className="color__variations--list-item" data-color={color} style={{color:closest,background:color}}>
                         <MdOutlineContentCopy/>
                     </div>
                 })}
@@ -40,7 +40,7 @@ export const ColorContainer:React.FC = () =>{
             <div className="color__variations--list">
                 {colorMapBlack !== "Loading..." && colorMapBlack.map((color,index)=>{
                     const closest = canvasHandler.getClosestColor(color,[{hex:"#ffffff",name:"black"},{hex:"#000000",name:"white"}])
-                    return <div key={color} data-precent={((index+1)*10)+"%"} className="color__variations--list-item" data-color={color} style={{color:closest,background:color}}>
+                    return <div key={color} data-precent={((index)*10)+"%"} className="color__variations--list-item" data-color={color} style={{color:closest,background:color}}>
                         <MdOutlineContentCopy/>
                     </div>
                 })}
