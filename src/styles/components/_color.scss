@@ -4,10 +4,10 @@
   background-color: #fafafa;
   transition: 0.3s;
   transform: translateX(0%);
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow-y: scroll;
   &.dark {
     background-color: #111111;
     .color {
@@ -69,6 +69,7 @@
     width: 1000px;
     margin: 0 auto;
     height: 68px;
+    margin-top: 30px;
     padding: 16px 0;
     display: flex;
     justify-content: space-between;
@@ -87,7 +88,9 @@
   }
   &__converter {
     width: 1000px;
-    margin-top: 20px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 2px 0;
     box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.12);
     transition: 0.3s;
     &:hover {
@@ -156,11 +159,11 @@
   }
   &__variations {
     box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.12);
+    margin: 40px auto;
     transition: 0.3s;
     &:hover {
       box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.2);
     }
-    margin-top: 20px;
     width: 1000px;
     border: 1px solid lightgray;
     background-color: #fafafa;
