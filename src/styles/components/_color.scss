@@ -40,7 +40,9 @@
         }
       }
       &__converter {
-        background-color: #000;
+        border-color: rgb(68, 68, 68);
+        background-color: #000000;
+        border-radius: 5px;
         &--title {
           color: #fafafa;
         }
@@ -88,6 +90,8 @@
   }
   &__converter {
     width: 1000px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
     margin: 0 auto;
     margin-top: 40px;
     padding: 2px 0;
@@ -165,8 +169,8 @@
       box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.2);
     }
     width: 1000px;
-    border: 1px solid lightgray;
     background-color: #fafafa;
+    border: 1px solid lightgray;
     border-radius: 5px;
     &--title {
       font-weight: 500;
